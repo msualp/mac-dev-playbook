@@ -161,24 +161,10 @@ gem_packages: []
 #   state: present # present/absent/latest, default: present
 #   version: "~> 1.15.1" # default: N/A
 npm_packages: []
-  # - name: webpack
-  #   state: present # present/absent/latest, default: present
   - name: langchain
     state: present
   - name: langsmith
     state: present
-  # - name:
-  #   - langchain-openai
-  #   - tiktoken
-  #   - pandas
-  #   - duckduckgo-search
-  #   state: latest
-  # - name:
-  #     - langchain-openai
-  #     - tiktoken
-  #     - pandas
-  #     - duckduckgo-search
-  #   state: latest
   
   # Set to 'true' to configure Sublime Text.
   # configure_sublime: false
