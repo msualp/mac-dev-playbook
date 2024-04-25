@@ -170,12 +170,12 @@ npm_packages: []
     state: present
   - name: langchainhub
     state: present
-  - name:
-      - langchain-openai
-      - tiktoken
-      - pandas
-      - duckduckgo-search
-    state: latest
+  # - name:
+  #     - langchain-openai
+  #     - tiktoken
+  #     - pandas
+  #     - duckduckgo-search
+  #   state: latest
 
 # Set to 'true' to configure Sublime Text.
 # configure_sublime: false
