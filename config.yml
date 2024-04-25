@@ -1,4 +1,14 @@
 ---
+vars_prompt:
+  - name: "mas_password"
+    prompt: "Enter your Mac App Store password"
+    private: yes  # Ensures the input is hidden (like typing a password in the terminal)
+
+tasks:
+  - name: Login to MAS
+    command: "mas signin {{ mas_email }} '{{ mas_password }}'"
+    no_log: true
+    
 downloads: ~/.ansible-downloads/
 
 configure_dotfiles: true
@@ -37,60 +47,74 @@ dotfiles_repo: https://github.com/geerlingguy/dotfiles.git
 dotfiles_repo_accept_hostkey: true
 dotfiles_repo_local_destination: ~/Development/GitHub/dotfiles
 dotfiles_files:
-  - .zshrc
-  - .gitignore
-  - .inputrc
-  - .osx
-  - .vimrc
+  - .zshrc  # Z shell configuration file, used to customize the shell environment; typically located at ~/.zshrc
+  - .gitignore  # Specifies intentionally untracked files to ignore in Git projects; usually located in the root of a Git repository as .gitignore
+  - .inputrc  # Configuration file for readline, which provides customizable input handling for many command-line tools; typically found at ~/.inputrc
+  - .osx  # Custom script to configure macOS settings, not a standard file but used for personal scripts; generally placed in the home directory as ~/.osx
+  - .vimrc  # Configuration file for Vim, used to set up the environment or define custom behaviors; usually located at ~/.vimrc
 
 homebrew_installed_packages:
-  # - ansible # Installed via Pip.
-  - autoconf
-  - bash-completion
-  - doxygen
-  - gettext
-  - gifsicle
-  - git
-  - gh
-  - go
-  - gpg
-  - httpie
-  - iperf
-  - libevent
-  - sqlite
-  - nmap
-  - node
-  - nvm
-  - php
-  - ssh-copy-id
-  - cowsay
-  - readline
-  - openssl
-  - pv
-  - wget
-  - wrk
-  - zsh-history-substring-search
+  # List of Homebrew packages installed on this machine
+  - autoconf  # Tool for generating build configurations
+  - bash-completion  # Enhances Bash shell completion capabilities
+# - doxygen  # Documentation generator for software projects
+# - gettext  # Set of tools for internationalization and localization (i18n/l10n)
+  - gifsicle  # Command-line tool for manipulating GIF images
+  - git  # Version control system from GitHub
+# - gh  # GitHub CLI, a command-line interface for GitHub
+  - go  # Go programming language compiler and runtime environment
+  - gpg  # GNU Privacy Guard, a free replacement for PGP
+  - httpie  # Modern, intuitive command-line HTTP client
+  - iperf  # Tool for measuring network bandwidth and performance
+  - libevent  # Event-driven I/O library for building scalable network applications
+  - sqlite  # Self-contained, file-based relational database
+  - nmap  # Network scanning and exploration tool
+  - node  # Node.js JavaScript runtime environment
+  - nvm  # Node Version Manager, which allows you to easily manage multiple versions of Node.js on your system
+  - php  # PHP programming language compiler and interpreter
+  - ssh-copy-id  # Tool for securely copying SSH public keys between systems
+# - cowsay  # Playful command-line tool that prints ASCII art cows with customizable text
+  - readline  # Library for reading input from the user, providing features like tab completion
+  - openssl  # OpenSSL cryptographic toolkit (used for encryption, decryption, and more)
+  - pv  # Pipe Viewer, a tool for monitoring data transfer rates and progress
+  - wget  # GNU Wget command-line web downloader
+  - wrk  # Modern, feature-rich HTTP benchmarking tool
+  - zsh-history-substring-search  # Enhancement to the Z shell (Zsh) that allows for faster searching of command history
 
 homebrew_taps: []
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-  - chromedriver
-  - docker
-  - dropbox
-  - firefox
-  - google-chrome
-  - handbrake
-  - licecap
-  - sequel-ace
-  - slack
-  - sublime-text
-  - transmit
+### Apps
+  - firefox  # Open-source web browser known for its flexibility and privacy features
+  - google-chrome  # Fast, widely used web browser from Google
+  - duckduckgo
+  - notion
+  - jupyterlab
+  - whatsapp
+  - messenger
+# - slack  # Collaboration hub that connects your work with your team members
+
+### Dev
+  - visual-studio  # Integrated development environment (IDE) from Microsoft for various programming languages
+  - docker  # Platform for developing, shipping, and running applications in containers
+  - anaconda
+
+### Util
+  - chromedriver  # WebDriver for Chrome, enabling automated control of the browser
+  - sequel-ace  # Database management application for working with MySQL & MariaDB databases
+#  - dropbox  # Cloud storage service for file sharing and personal backup
+#  - handbrake  # Tool for converting video from nearly any format to a selection of modern codecs
+#  - licecap  # Simple, animated screen capture tool that records to GIF
+#  - sublime-text  # Sophisticated text editor for code, markup, and prose
+  - transmit  # File transfer client supporting FTP, SFTP, WebDAV, and more
+  - duplicate-file-finder
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps: []
-mas_email: ""
-mas_password: ""
+  - { id: 967805235, name: "Paste - Endless Clipboard" }  # Clipboard history manager
+mas_email: "{{ mas_email }}"
+mas_password: "{{ mas_password }}"
 
 osx_script: "~/.osx --no-restart"
 
@@ -115,22 +139,26 @@ pip_packages: []
 #   version: "0.16.3" # default: N/A
 
 # Set to 'true' to configure Sublime Text.
-configure_sublime: false
-sublime_base_path: '~/Library/Application Support/Sublime Text'
-sublime_config_path: "Packages/User"
-sublime_package_control:
-  - "DocBlockr"
-  - "Dockerfile Syntax Highlighting"
-  - "FileDiffs"
-  - "GitHub Flavored Markdown Preview"
-  - "Jinja2"
-  - "Package Control"
-  - "PHP-Twig"
-  - "Pretty JSON"
-  - "SublimeLinter"
-  - "SublimeLinter-contrib-yamllint"
-  - "TrailingSpaces"
-  - "WordCount"
+# configure_sublime: false
+# sublime_base_path: '~/Library/Application Support/Sublime Text'
+# sublime_config_path: "Packages/User"
+# sublime_package_control:
+#   - "DocBlockr"
+#   - "Dockerfile Syntax Highlighting"
+#   - "FileDiffs"
+#   - "GitHub Flavored Markdown Preview"
+#   - "Jinja2"
+#   - "Package Control"
+#   - "PHP-Twig"
+#   - "Pretty JSON"
+#   - "SublimeLinter"
+#   - "SublimeLinter-contrib-yamllint"
+#   - "TrailingSpaces"
+#   - "WordCount"
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
 post_provision_tasks: []
+
+# Unsupported items for installation
+# - Paste—Endless Clipboard [https://apps.apple.com/us/app/paste-endless-clipboard/id967805235]
+# - HyperSwitch Window Switcher for Mac OS [https://bahoom.com/hyperswitch]
