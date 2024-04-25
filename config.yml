@@ -161,10 +161,10 @@ gem_packages: []
 #   state: present # present/absent/latest, default: present
 #   version: "~> 1.15.1" # default: N/A
 npm_packages: []
-  - name: langchain
-    state: present
-  - name: langsmith
-    state: present
+  # - name: langchain
+  #   state: present
+  # - name: langsmith
+  #   state: present
   
   # Set to 'true' to configure Sublime Text.
   # configure_sublime: false
