@@ -164,16 +164,15 @@ npm_packages: []
 # - name: webpack
 #   state: present # present/absent/latest, default: present
 #   version: "^2.6" # default: N/A
-  - name: langchain
-  - name: langsmith
-  - name: langchainhub
-  # - name:
-  #     - langchain-openai
-  #     - tiktoken
-  #     - pandas
-  #     - duckduckgo-search
-  #   state: latest
-
+- name: langchain
+- name: langsmith
+- name: langchainhub
+# - name:
+#     - langchain-openai
+#     - tiktoken
+#     - pandas
+#     - duckduckgo-search
+#   state: latest
 # Set to 'true' to configure Sublime Text.
 # configure_sublime: false
 # sublime_base_path: '~/Library/Application Support/Sublime Text'
