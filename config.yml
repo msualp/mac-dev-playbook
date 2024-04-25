@@ -165,11 +165,8 @@ npm_packages: []
 #   state: present # present/absent/latest, default: present
 #   version: "^2.6" # default: N/A
   - name: langchain
-    state: present
   - name: langsmith
-    state: present
   - name: langchainhub
-    state: present
   # - name:
   #     - langchain-openai
   #     - tiktoken
