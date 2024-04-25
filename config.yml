@@ -142,10 +142,10 @@ homebrew_cask_apps:
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps: []
-  - id: 967805235
-  name: "Paste - Endless Clipboard" # Clipboard history manager
-mas_email: "{{ mas_email }}"
-mas_password: "{{ mas_password }}"
+#   - id: 967805235
+#   name: "Paste - Endless Clipboard" # Clipboard history manager
+# mas_email: "{{ mas_email }}"
+# mas_password: "{{ mas_password }}"
 
 osx_script: "~/.osx --no-restart"
 
